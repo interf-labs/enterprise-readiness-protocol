@@ -18,17 +18,14 @@ Vendor deployed CRM data entry automation at a major US bank using Salesforce En
 
 ## What Happened
 
-Security review took 5 weeks (vs typical 2 weeks). Required SOC2 Type II report and penetration test results. Custom object permissions required involvement from Salesforce admin shared across 3 departments — scheduling was the bottleneck. Field mapping needed 2 rounds because first mapping missed picklist value translations.
+Security review was the critical path — required SOC2 Type II report and penetration test results before any API access was granted. Custom object permissions required involvement from a Salesforce admin shared across departments — scheduling was the bottleneck. Field mapping needed 2 rounds because the first mapping missed picklist value translations.
 
-## Dependencies
+## Critical Path
 
-| Dependency | Resolution Time | Blocker? |
-|---|---|---|
-| Security review | 5 weeks | Yes — blocked all API access |
-| SSO (SAML via Okta) | 1 week | No |
-| CRM API credentials | 3 days (after security cleared) | No |
-| Data team for field mapping | 2 weeks (2 sessions) | No |
-| Compliance review (PII) | 2 weeks (parallel with security) | No |
+1. Security review (blocks everything)
+2. CRM API credentials (after security clears)
+3. Field mapping (parallel, needs data team)
+4. SSO setup (parallel, straightforward)
 
 ## Key Takeaway
 

@@ -138,14 +138,28 @@ Open an issue or reach out at [interf.com](https://interf.com).
 
 ## Use-Case Format
 
-Use-cases are real rollout scenarios. They're the easiest way to contribute — just describe what happened:
+Use-cases are real rollout scenarios. The easiest way to contribute — describe what happened.
+
+**What goes public (this repo):**
+- What type of vendor, what sector, what system
+- Which dependencies were triggered
+- What was the critical path
+- Key takeaway for next FDE
+
+**What stays private (share via interf.com/contribute):**
+- Specific timelines and resolution days
+- Cost data
+- Company names
+- Internal process details
+
+Public use-case template:
 
 ```markdown
 ---
 id: category.subcategory.name
 use_case: Short description of the scenario
-sector: financial-services
-system: salesforce
+sector: sector-name
+system: system-name
 dependencies_triggered:
   - type.id.one
   - type.id.two
@@ -158,12 +172,11 @@ What vendor was deploying, at what kind of enterprise, using what system.
 ## What Happened
 
 What went well, what was slow, what surprised people.
+No company names, no specific timelines.
 
-## Dependencies
+## Critical Path
 
-| Dependency | Resolution Time | Blocker? |
-|---|---|---|
-| Type name | X weeks | Yes/No |
+Ordered list of dependencies showing what blocks what.
 
 ## Key Takeaway
 
@@ -171,3 +184,6 @@ One sentence: what should the next FDE know before starting this rollout?
 ```
 
 Place use-case files in `types/<category>/<type>/use-cases/`.
+
+Have private data to share (timelines, costs, company details)?
+Submit it at [interf.com/contribute](https://interf.com/contribute) — it powers our execution intelligence benchmarks and is never published publicly.
