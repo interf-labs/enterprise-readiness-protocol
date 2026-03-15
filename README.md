@@ -10,7 +10,7 @@ npx skills add interf-labs/agent-onboarding-protocol
 
 ## Skills
 
-### `declare`
+### `interf-declare`
 
 Declare an `interf.yaml` onboarding contract — scan your codebase and extract every enterprise dependency, or define them manually.
 
@@ -19,7 +19,7 @@ Declare an `interf.yaml` onboarding contract — scan your codebase and extract 
 - "What do we need from enterprise to roll out?"
 - "Create an interf.yaml"
 
-### `preview`
+### `interf-preview`
 
 Preview enterprise rollout against a company profile. Produces per-requirement analysis: resolution timelines, stakeholders, risks, blockers, and critical path to production.
 
