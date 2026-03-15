@@ -7,8 +7,8 @@ description: External system integrations — APIs, webhooks, data feeds
 
 | Type | Name | File |
 |---|---|---|
-| `integration.crm.api` | CRM API Access | [crm.md](./crm.md) |
-| `integration.crm.bulk-export` | CRM Bulk Export | [crm.md](./crm.md) |
+| `integration.crm.api` | CRM API Access | [crm/](./crm/) |
+| `integration.crm.bulk-export` | CRM Bulk Export | [crm/](./crm/) |
 | `integration.erp.api` | ERP System Access | [erp.md](./erp.md) |
 | `integration.erp.rfc` | SAP RFC | [erp.md](./erp.md) |
 | `integration.hris.api` | HRIS Access | [erp.md](./erp.md) |

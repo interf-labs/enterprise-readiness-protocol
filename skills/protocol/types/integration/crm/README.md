@@ -24,13 +24,13 @@ Use this type when vendor says: "access to your CRM", "read/write contacts", "op
 
 ## System-Specific
 
-- [Salesforce](./crm/systems/salesforce.md) — Connected App, OAuth scopes, IP allowlisting
-- [HubSpot](./crm/systems/hubspot.md) — Private App, rate limits, association API
+- [Salesforce](./systems/salesforce.md) — Connected App, OAuth scopes, IP allowlisting
+- [HubSpot](./systems/hubspot.md) — Private App, rate limits, association API
 
 ## Sector Patterns
 
-- [Financial Services](./crm/sectors/financial-services.md) — PII restrictions, extended security review
-- [Healthcare](./crm/sectors/healthcare.md) — HIPAA BAA, PHI handling, de-identification
+- [Financial Services](./sectors/financial-services.md) — PII restrictions, extended security review
+- [Healthcare](./sectors/healthcare.md) — HIPAA BAA, PHI handling, de-identification
 
 ---
 
