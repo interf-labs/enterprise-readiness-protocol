@@ -135,3 +135,39 @@ types/
 ## Questions?
 
 Open an issue or reach out at [interf.com](https://interf.com).
+
+## Use-Case Format
+
+Use-cases are real rollout scenarios. They're the easiest way to contribute — just describe what happened:
+
+```markdown
+---
+id: category.subcategory.name
+use_case: Short description of the scenario
+sector: financial-services
+system: salesforce
+dependencies_triggered:
+  - type.id.one
+  - type.id.two
+---
+
+# Short Description
+
+What vendor was deploying, at what kind of enterprise, using what system.
+
+## What Happened
+
+What went well, what was slow, what surprised people.
+
+## Dependencies
+
+| Dependency | Resolution Time | Blocker? |
+|---|---|---|
+| Type name | X weeks | Yes/No |
+
+## Key Takeaway
+
+One sentence: what should the next FDE know before starting this rollout?
+```
+
+Place use-case files in `types/<category>/<type>/use-cases/`.

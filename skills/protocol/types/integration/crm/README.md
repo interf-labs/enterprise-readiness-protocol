@@ -44,3 +44,7 @@ One-time or periodic bulk export of CRM data. Different from API access — this
 
 - **what:** Bulk export of CRM records (contacts and opportunities, 12+ months)
 - **ready:** We receive a data export of 12+ months of records in CSV or via bulk API
+
+## Use Cases
+
+- [CRM automation at a Fortune 500 bank](./use-cases/crm-automation-at-bank.md) — Salesforce, financial services, 5-week security review
