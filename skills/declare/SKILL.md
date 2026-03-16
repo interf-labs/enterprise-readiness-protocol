@@ -1,9 +1,9 @@
 ---
 name: interf-declare
 description: >
-  Declare an interf.yaml onboarding contract. Scans the codebase
-  to extract enterprise dependencies, or helps you define them manually. Use when
-  you want to define what you need from enterprise to deliver value.
+  Create an interf.yaml onboarding contract by scanning the codebase for
+  enterprise dependencies, or define them manually. Use when you need to
+  specify what you need from enterprise before rollout.
 ---
 
 # Declare Onboarding Contract
