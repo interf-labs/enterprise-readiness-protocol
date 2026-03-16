@@ -1,21 +1,23 @@
-# integration.messaging — Email & Chat Platforms
+---
+id: integration.messaging.api
+name: Messaging Platform Integration
+category: integration
+systems: [slack, microsoft-teams, google-chat]
+requires: [auth.api-credentials, stakeholder.it-admin]
+blocked_by: [process.security-review]
+related: [integration.email.api, integration.webhook.outbound]
+sectors: [all]
+---
 
-## integration.email.api
+# Messaging Platform Integration
 
-**Matches:** "send emails on behalf of users", "access to your email platform", "email integration", "Gmail/Outlook/Exchange access"
+Vendor needs to post messages or interact with the enterprise messaging platform. Common for solutions that provide notifications, alerts, or interactive workflows via chat.
 
-Vendor needs to read or send email through the enterprise email system. Common for automation solutions that send notifications, follow-ups, or process email-based workflows.
+## Template
 
-**Common enterprise systems:** Microsoft 365 / Exchange, Google Workspace / Gmail, Proton Mail
+- **what:** Access to your messaging platform for posting notifications and alerts
+- **ready:** Our service can post a test message to a designated test channel
 
-**Typical ready criteria:** "Our service can send a test email on behalf of a test user through your email system"
+## Matches
 
-## integration.messaging.api
-
-**Matches:** "Slack integration", "Teams notifications", "send messages to your channels", "chat platform access", "post to Slack"
-
-Vendor needs to post messages or interact with the enterprise messaging platform. Common for solutions that provide notifications, alerts, or interactive workflows.
-
-**Common enterprise systems:** Slack, Microsoft Teams, Google Chat
-
-**Typical ready criteria:** "Our service can post a test message to a designated test channel"
+Use this type when vendor says: "Slack integration", "Teams notifications", "send messages to your channels", "chat platform access", "post to Slack", "bot in Teams"
