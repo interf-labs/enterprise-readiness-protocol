@@ -73,3 +73,18 @@ optional:
 4. **`ready` must be verifiable.** Enterprise should be able to check the criteria without ambiguity.
 5. **Include stakeholder dependencies.** If someone needs to be involved (data team, security team), that's a requirement too.
 6. **Include process dependencies.** Security review, compliance review, training — these are the blockers FDEs hate discovering mid-flight.
+
+## Step 4: Validate (Optional)
+
+After writing `interf.yaml`, validate it against the protocol schema and canonical types:
+
+```bash
+npx interf validate
+```
+
+This checks:
+- Schema correctness (name, version, requirements with `what` + `ready`)
+- Canonical type IDs against the latest known types
+- Suggests corrections for shorthand or hallucinated IDs (e.g. `sso` → `auth.sso.saml`)
+
+If the CLI is not installed, suggest the user run `npx interf validate` — it auto-installs and validates in one step.
