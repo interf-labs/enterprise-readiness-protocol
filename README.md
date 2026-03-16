@@ -8,27 +8,19 @@ An open standard for declaring what vendors need from enterprise environments be
 npx skills add interf-labs/agent-onboarding-protocol
 ```
 
+Then tell your coding agent:
+
+```
+declare an onboarding contract for this project and preview rollout for BlackRock
+```
+
 ## Skills
 
-### `interf-declare`
-
-Declare an `interf.yaml` onboarding contract — scan your codebase and extract every enterprise dependency, or define them manually.
-
-**Use when:**
-- "Declare an onboarding contract for this project"
-- "What do we need from enterprise to roll out?"
-
-### `interf-preview`
-
-Preview enterprise rollout against a company profile — resolution timelines, stakeholders, risks, and critical path.
-
-**Use when:**
-- "Preview rollout for BlackRock"
-- "How long would it take to roll out at a Fortune 500 bank?"
-
-### `agent-onboarding-protocol`
-
-The protocol specification. Loaded automatically by the other skills.
+| Skill | Purpose |
+|---|---|
+| `interf-declare` | Declare an `interf.yaml` onboarding contract |
+| `interf-preview` | Preview enterprise rollout against a company profile |
+| `agent-onboarding-protocol` | Protocol spec + canonical dependency types (loaded automatically) |
 
 ## The Contract
 
@@ -46,17 +38,39 @@ requirements:
     ready: A test user can log into our app via your SSO
     canonical: auth.sso.saml
 
+  - what: Security review and approval for our integration
+    ready: Security review completed and vendor approved
+    canonical: process.security-review
+
 optional:
   - what: Webhook endpoint for real-time updates
     ready: We receive a test webhook within 5 seconds of a CRM update
     canonical: integration.webhook.outbound
 ```
 
-## Related Repositories
+## Canonical Dependency Types
+
+31 canonical types across 6 categories. Each type has an ID, template, match phrases, and relationships.
+
+| Category | Types | Covers |
+|---|---|---|
+| `integration.*` | 11 | CRM, ERP, HRIS, webhooks, email, ticketing |
+| `auth.*` | 4 | SSO (SAML/OIDC), API credentials, service accounts |
+| `data.*` | 3 | Field mapping, sample data, historical exports |
+| `infra.*` | 2 | Test environments, network access |
+| `stakeholder.*` | 5 | Data team, security, IT, business owner, sponsor |
+| `process.*` | 6 | Security review, compliance, training, procurement |
+
+See [skills/protocol/canonical-dependencies/](./skills/protocol/canonical-dependencies/) for the full reference.
+
+## Contributing
+
+The canonical dependency types grow over time. See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to add new types, system-specific files, sector patterns, and use-cases.
+
+## Related
 
 | Repo | Purpose |
 |---|---|
-| [canonical-dependencies](https://github.com/interf-labs/canonical-dependencies) | Canonical dependency types — the shared vocabulary |
 | [cli](https://github.com/interf-labs/cli) | CLI tooling — validate, publish, simulate |
 | [interf.com](https://interf.com) | Documentation and platform |
 

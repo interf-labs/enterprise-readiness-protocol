@@ -3,13 +3,14 @@ name: agent-onboarding-protocol
 description: >
   The Agent Onboarding Protocol specification — the open standard
   format for declaring what vendors need from enterprise environments.
+  Includes canonical dependency types for deterministic matching.
   Loaded automatically by interf-declare and interf-preview.
 user-invocable: false
 ---
 
 # Agent Onboarding Protocol
 
-An open standard for declaring what vendors need from enterprise environments before rollout. The onboarding contract makes enterprise dependencies explicit, previewable, and verifiable — so enterprises self-prepare and vendors stop waiting.
+An open standard for declaring what vendors need from enterprise environments before rollout.
 
 ## Contract Format
 
@@ -24,11 +25,24 @@ See [examples.md](./examples.md) for realistic contracts across different rollou
 
 ## Canonical Dependency Types
 
-The canonical types are maintained in a separate repository for independent versioning and community expansion:
+See [canonical-dependencies/index.md](./canonical-dependencies/index.md) for the full reference.
 
-**[interf-labs/canonical-dependencies](https://github.com/interf-labs/canonical-dependencies)**
+**Always load these before declaring or previewing a contract.** Each type has:
+- `id` — the canonical identifier (e.g. `integration.crm.api`)
+- `template` — pre-written `what` + `ready` pair
+- `matches` — phrases for mapping plain English
+- `requires` / `blocked_by` / `related` — dependency relationships
+- `systems` — known enterprise systems
+- `sectors` — sector-specific considerations
 
-When mapping a vendor requirement to a canonical type, fetch the latest reference from that repository. If no canonical type matches, leave the `canonical` field empty — the contract works with plain English alone.
+| Category | Types | Reference |
+|---|---|---|
+| integration | CRM, ERP, HRIS, webhooks, email, ticketing | [integration/](./canonical-dependencies/integration/overview.md) |
+| auth | SSO (SAML/OIDC), API credentials, service accounts | [auth/](./canonical-dependencies/auth/overview.md) |
+| data | Field mapping, sample data, historical exports | [data/](./canonical-dependencies/data/overview.md) |
+| infrastructure | Test environments, network access | [infrastructure/](./canonical-dependencies/infrastructure/overview.md) |
+| stakeholder | Data team, security, IT, business owner, sponsor | [stakeholder/](./canonical-dependencies/stakeholder/overview.md) |
+| process | Security review, compliance, training, procurement | [process/](./canonical-dependencies/process/overview.md) |
 
 ## How It Works
 

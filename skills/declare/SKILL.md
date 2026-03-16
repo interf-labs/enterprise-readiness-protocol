@@ -2,66 +2,44 @@
 name: interf-declare
 description: >
   Declare an interf.yaml onboarding contract. Scans the codebase
-  to extract enterprise dependencies, or helps you write them manually. Use when
+  to extract enterprise dependencies, or helps you define them manually. Use when
   you want to define what you need from enterprise to deliver value.
-license: MIT
-metadata:
-  author: interf
-  version: "2.0.0"
 ---
 
 # Declare Onboarding Contract
 
 Extract or define an `interf.yaml` onboarding contract declaring what you need from enterprise environments.
 
-The contract is plain English. Each dependency is a `what` (what you need) and `ready` (how enterprise knows it's done).
+## Before You Start
 
-## Process
+**Load the canonical dependency types first.** Read [the protocol skill's canonical-dependencies/index.md](../protocol/canonical-dependencies/index.md) to understand what canonical types are available. Use the correct canonical IDs — do not invent shorthand.
 
-### Step 1: Understand the Solution
+## Step 1: Analyze the Project
 
-- Read README, package.json / pyproject.toml / go.mod, and key config files
-- Identify what this project does and who the enterprise users are
-- Understand what value it delivers to enterprise customers
-
-### Step 2: Extract Dependencies
-
-Scan the codebase for things that depend on the enterprise environment. Think like an FDE: what would you need from the customer before you can go live?
-
-**System access**
-- HTTP client calls, SDK imports, API references
-- Database connections, ORM configs
-- OAuth/SSO/SAML configurations
-- Cloud storage references (S3, GCS, Azure Blob)
-- Webhook configurations
-
-**Data requirements**
+- What does this project do and who are the enterprise users?
+- What external systems does it connect to?
 - What data access is needed?
-- Historical data for training or analysis?
-- Real-time data feeds?
-- Custom field mapping needed?
+- What authentication/authorization is required?
+- Who needs to be involved on the enterprise side?
+- What reviews or approvals are typical?
 
-**Human coordination**
-- Who at the enterprise needs to be involved?
-- Data team for field mapping?
-- Security team for review?
-- Business owner for validation?
-- Executive sponsor?
+Look at:
+- Configuration files (environment variables, API endpoints, auth config)
+- Integration code (API clients, database connections, webhook handlers)
+- Documentation (architecture docs, setup guides, runbooks)
+- Deployment config (infrastructure requirements, network rules)
 
-**Process requirements**
-- Security review or assessment?
-- Legal/DPA review?
-- Change management for affected workflows?
-- End-user training?
+## Step 2: Map to Canonical Types
 
-**Infrastructure**
-- Test/staging environments needed?
-- Network access or firewall rules?
-- Compute resources?
+For each dependency identified:
 
-### Step 3: Write the Contract
+1. Read the [canonical-dependencies/](../protocol/canonical-dependencies/index.md) reference
+2. Find the matching canonical type by description and match phrases
+3. Use the canonical type's template as a starting point for `what` + `ready`
+4. Customize the template to match the specific project's needs
+5. If no canonical type matches, write the requirement in plain English and leave `canonical` empty
 
-Write `interf.yaml` to the project root:
+## Step 3: Write interf.yaml
 
 ```yaml
 name: project-name
@@ -69,41 +47,29 @@ version: 0.1.0
 description: What it does, one line
 
 requirements:
-  - what: Plain English — what you need from enterprise
-    ready: How enterprise verifies this is done — specific and testable
+  - what: Read/write access to your CRM (contacts and opportunities)
+    ready: We can create a contact and read an opportunity via API from our staging environment
+    canonical: integration.crm.api
 
-  - what: Another dependency
-    ready: Another verification criteria
+  - what: SSO endpoint for our service to authenticate your users
+    ready: A test user can log into our app via your SSO and see their CRM data
+    canonical: auth.sso.saml
+
+  - what: Security review and approval for our integration
+    ready: Security review completed and vendor approved for production integration
+    canonical: process.security-review
 
 optional:
-  - what: Something that improves the experience but isn't blocking
-    ready: How to verify
+  - what: Webhook endpoint for real-time update notifications
+    ready: We receive a test webhook payload within 5 seconds of a CRM update
+    canonical: integration.webhook.outbound
 ```
 
-**Writing good `what` descriptions:**
-- Write for a non-technical stakeholder when possible
-- Be specific: "Read/write access to your CRM contacts and opportunities" not "CRM access"
-- Include scope: "12 months of contact history" not "historical data"
-- Include effort estimates for human tasks: "~4 hours of your data team's time"
+## Rules
 
-**Writing good `ready` criteria:**
-- Make it verifiable: "We can create a contact via API from our staging environment"
-- Include what success looks like: "Extraction accuracy above 95% on sample documents"
-- Be specific about who verifies: "Field mapping document signed off by both sides"
-
-### Step 4: Auto-map Canonical Types
-
-For each dependency, check if it matches a known canonical type from the Agent Onboarding Protocol. If confident, add the `canonical` field. If unsure, skip it — the contract works without it.
-
-Reference: load the `protocol` skill for the canonical type reference.
-
-### Step 5: Summarize
-
-Tell the user:
-- Total dependencies found (needs vs optional)
-- Any dependencies that might be missing — common things FDEs forget:
-  - Security review (almost always needed at enterprise)
-  - Test environment (hard to validate without one)
-  - Data team coordination (custom fields always need mapping)
-  - Executive sponsor (rollouts stall without one)
-- Next steps: review the contract, then preview rollout with the `preview` skill
+1. **Plain English first.** Every requirement must have `what` + `ready` in plain English. Canonical is a reference, not a replacement.
+2. **Use correct canonical IDs.** Check the canonical-dependencies reference. Do not use shorthand like `sso` or `api-key` — use `auth.sso.saml` or `auth.api-credentials`.
+3. **One dependency per item.** Don't combine "CRM access and SSO" into one requirement.
+4. **`ready` must be verifiable.** Enterprise should be able to check the criteria without ambiguity.
+5. **Include stakeholder dependencies.** If someone needs to be involved (data team, security team), that's a requirement too.
+6. **Include process dependencies.** Security review, compliance review, training — these are the blockers FDEs hate discovering mid-flight.
