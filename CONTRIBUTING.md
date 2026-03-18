@@ -1,4 +1,4 @@
-# Contributing to the Agent Onboarding Protocol
+# Contributing to the Enterprise Readiness Protocol
 
 The canonical dependency types are the foundation of the protocol. They grow as more enterprise rollouts are documented. We welcome contributions from FDEs, customer success teams, and anyone with real-world rollout experience.
 
@@ -36,7 +36,7 @@ One paragraph: what is this dependency? When does a vendor need it? Why does it 
 
 ## Template
 
-- **what:** What the vendor declares in their onboarding contract (plain English)
+- **what:** What the vendor declares in their readiness contract (plain English)
 - **ready:** How enterprise verifies this dependency is resolved (acceptance criteria)
 
 ## Matches

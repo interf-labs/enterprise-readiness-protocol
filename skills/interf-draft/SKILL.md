@@ -1,14 +1,14 @@
 ---
 name: interf-draft
 description: >
-  Draft an interf.yaml onboarding contract by scanning the codebase for
+  Draft an interf.yaml readiness contract by scanning the codebase for
   enterprise dependencies, or define them manually. Use when you need to
   specify what you need from enterprise before rollout.
 ---
 
-# Declare Onboarding Contract
+# Declare Readiness Contract
 
-Extract or define an `interf.yaml` onboarding contract declaring what you need from enterprise environments.
+Extract or define an `interf.yaml` readiness contract declaring what you need from enterprise environments.
 
 ## Before You Start
 

@@ -1,14 +1,14 @@
 ---
-name: agent-onboarding-protocol
+name: enterprise-readiness-protocol
 description: >
-  The Agent Onboarding Protocol specification — the open standard
+  The Enterprise Readiness Protocol specification — the open standard
   format for declaring what vendors need from enterprise environments.
   Includes canonical dependency types for deterministic matching.
   Loaded automatically by interf-draft and interf-preview.
 user-invocable: false
 ---
 
-# Agent Onboarding Protocol
+# Enterprise Readiness Protocol
 
 An open standard for declaring what vendors need from enterprise environments before rollout.
 

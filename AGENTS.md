@@ -1,17 +1,17 @@
-# Agent Onboarding Protocol
+# Enterprise Readiness Protocol
 
 Install the skills:
 
 ```bash
-npx skills add interf-labs/agent-onboarding-protocol
+npx skills add interf-labs/enterprise-readiness-protocol
 ```
 
-Then: create an onboarding contract for this project and preview rollout for <company>
+Then: draft a readiness contract for this project and preview rollout for <company>
 
 ## Skills
 
 | Skill | Purpose |
 |---|---|
-| `interf-draft` | Draft an `interf.yaml` onboarding contract |
+| `interf-draft` | Draft a readiness contract (`interf.yaml`) |
 | `interf-preview` | Preview enterprise rollout against a company profile |
-| `agent-onboarding-protocol` | Protocol spec + canonical dependency types (loaded automatically) |
+| `enterprise-readiness-protocol` | Protocol spec (loaded automatically) |

@@ -8,7 +8,7 @@ description: >
 
 # Preview Enterprise Rollout
 
-Generate a rollout preview for a specific enterprise based on an `interf.yaml` onboarding contract.
+Generate a rollout preview for a specific enterprise based on an `interf.yaml` readiness contract.
 
 ## Before You Start
 
