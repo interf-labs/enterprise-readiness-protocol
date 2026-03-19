@@ -23,27 +23,6 @@ See [spec.md](./spec.md) for the `interf.yaml` schema:
 
 See [examples.md](./examples.md) for realistic contracts across different rollout types.
 
-## Canonical Dependency Types
-
-See [canonical-dependencies/index.md](./canonical-dependencies/index.md) for the full reference.
-
-**Always load these before declaring or previewing a contract.** Each type has:
-- `id` — the canonical identifier (e.g. `integration.crm.api`)
-- `template` — pre-written `what` + `ready` pair
-- `matches` — phrases for mapping plain English
-- `requires` / `blocked_by` / `related` — dependency relationships
-- `systems` — known enterprise systems
-- `sectors` — sector-specific considerations
-
-| Category | Types | Reference |
-|---|---|---|
-| integration | CRM, ERP, HRIS, webhooks, email, ticketing | [integration/](./canonical-dependencies/integration/overview.md) |
-| auth | SSO (SAML/OIDC), API credentials, service accounts | [auth/](./canonical-dependencies/auth/overview.md) |
-| data | Field mapping, sample data, historical exports | [data/](./canonical-dependencies/data/overview.md) |
-| infrastructure | Test environments, network access | [infrastructure/](./canonical-dependencies/infrastructure/overview.md) |
-| stakeholder | Data team, security, IT, business owner, sponsor | [stakeholder/](./canonical-dependencies/stakeholder/overview.md) |
-| process | Security review, compliance, training, procurement | [process/](./canonical-dependencies/process/overview.md) |
-
 ## How It Works
 
 1. **Declare** — Vendor declares `interf.yaml` with every enterprise dependency.
